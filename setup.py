@@ -1,10 +1,7 @@
 from distutils.core import setup
 import sys
 
-if sys.version_info.major < 3:
-    break
-else:
-	install_requires_list = ['zeep', 'pandas']
+install_requires_list = ['zeep', 'pandas']
 
 # Long description to be published in PyPi
 LONG_DESCRIPTION = """
@@ -22,10 +19,10 @@ _VERSION = '0.0.1'
 
 setup(name='PyIress',
       version=_VERSION,
-      description='Python interface to the **Iress Pro Desktop Web Services API',
+      description='Python interface to the Iress Pro Desktop Web Services API',
       long_description=LONG_DESCRIPTION,
       url=_URL,
-      download_url=_URL + '/archive/v' + _VERSION + '.zip',
+      download_url=_URL + '/archive/' + _VERSION + '.zip',
       author='Charles Allderman',
       author_email='charles@allderman.com',
       license='MIT License',

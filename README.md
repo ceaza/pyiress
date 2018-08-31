@@ -8,7 +8,7 @@ PyIress is a Python interface onto the Iress web services API. See the [Website]
 	Time series information
 	Dividend information
 	Index information
-* Version 0.1
+* Version 0.0.1
 * This is the first version and the intention is to add to the list of available functions.
 * The following are currenly available:
 	- time_series : an items times series
@@ -59,7 +59,7 @@ PyIress is a Python interface onto the Iress web services API. See the [Website]
 
 ### Acknowledgements ###
 
-* Thanks to Vladimir Filimonov @vfilimonov whe wrote PyDatastream on which this project is based
+* Thanks to Vladimir Filimonov @vfilimonov who wrote PyDatastream on which this project is based
 
 
 ### License ###
