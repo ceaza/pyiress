@@ -20,17 +20,20 @@ PyIress is a Python interface onto the Iress web services API. See the [Website]
 
 * Dependencies
 	- zeep
-	-- For the [Zeep documentation] (https://python-zeep.readthedocs.io/en/master/).
+	
+	For the [Zeep documentation](https://python-zeep.readthedocs.io/en/master/).
 	- pandas
-	-- For the dependencies of `pandas` please refer to the [pandas documentation](http://pandas.pydata.org/pandas-docs/stable/install.html).
+	
+	For the dependencies of `pandas` please refer to the [pandas documentation](http://pandas.pydata.org/pandas-docs/stable/install.html).
 
 * To install the latest version
-	pip install pyiress
+
+		pip install pyiress
 
 
 ### Some Notes on Use ###
 	
-* Pandas is great for data analysis. We pull down the data and add it to a datafrome.
+* Pandas is great for data analysis. We pull down the data and add it to a dataframe.
 
 
 		from pyiress import Iress
@@ -51,6 +54,7 @@ PyIress is a Python interface onto the Iress web services API. See the [Website]
 ### Resources ###
 
 * Use the help in Iress Pro. Go to Help/API Documentation and select the pertinant resource.
+* Any comments welcome.
 
 
 ### Acknowledgements ###
