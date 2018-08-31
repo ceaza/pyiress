@@ -1,4 +1,4 @@
-# PyIRess #
+# PyIress #
 
 PyIress is a Python interface onto the Iress web services API. See the [Website] (https://www.iress.com/za/company/products/iress-pro-market-data-desktop/).
 
@@ -19,10 +19,10 @@ PyIress is a Python interface onto the Iress web services API. See the [Website]
 ### Installation ###
 
 * Dependencies
-	zeep
-	For the [Zeep documentation] (https://python-zeep.readthedocs.io/en/master/).
-	pandas
-	For the dependencies of `pandas` please refer to the [pandas documentation](http://pandas.pydata.org/pandas-docs/stable/install.html).
+	- zeep
+	-- For the [Zeep documentation] (https://python-zeep.readthedocs.io/en/master/).
+	- pandas
+	-- For the dependencies of `pandas` please refer to the [pandas documentation](http://pandas.pydata.org/pandas-docs/stable/install.html).
 
 * To install the latest version
 	pip install pyiress
@@ -30,7 +30,7 @@ PyIress is a Python interface onto the Iress web services API. See the [Website]
 
 ### Some Notes on Use ###
 	
-	Pandas is great for data analysis 
+* Pandas is great for data analysis. We pull down the data and add it to a datafrome.
 
 
 		from pyiress import Iress
@@ -56,3 +56,13 @@ PyIress is a Python interface onto the Iress web services API. See the [Website]
 ### Acknowledgements ###
 
 * Thanks to Vladimir Filimonov @vfilimonov whe wrote PyDatastream on which this project is based
+
+
+### License ###
+
+PyIress library is released under the MIT license.
+
+The license for the library is not extended in any sense to any of the content of the Iress or related services. Appropriate contract with Iress and valid credentials are required in order to use the API.
+
+Author of the library (@ceaza) is not affiliated, associated, authorized, sponsored, endorsed by, or in any way officially connected with Iress, or any of its subsidiaries or its affiliates. The name “Iress” as well as related names are registered trademarks of Iress.
+
