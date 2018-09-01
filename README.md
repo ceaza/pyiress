@@ -1,6 +1,6 @@
-# PyIress #
+﻿# PyIress #
 
-PyIress is a Python interface onto the Iress web services API. See the [Website] (https://www.iress.com/za/company/products/iress-pro-market-data-desktop/).
+PyIress is a Python interface onto the Iress web services API. See the [Website](https://www.iress.com/za/company/products/iress-pro-market-data-desktop/).
 
 ### Main Features ###
 
@@ -8,13 +8,13 @@ PyIress is a Python interface onto the Iress web services API. See the [Website]
 	Time series information
 	Dividend information
 	Index information
-* Version 0.0.1
+* Version 0.0.3
 * This is the first version and the intention is to add to the list of available functions.
 * The following are currenly available:
 	- time_series : an items times series
 	- dividends : dividends for an item
 	- get_many : many of the above
-	- MarketCapitalizationHistorical : Index constituent information
+	- MarketCapitalizationHistorical : Index constituent information over a specified period
 
 ### Installation ###
 
