@@ -64,7 +64,7 @@ class Iress(object):
         self._url = kwargs.pop('url', WSDL_URL)
         # Trying to connect
         try:
-            self.client = zeep.Client(wsdl=WSDL_URL, strict=False)
+            self.client = zeep.Client(wsdl=WSDL_URL)
         except:
             raise PyIressException('Cannot Connect')
 
