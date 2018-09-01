@@ -1,7 +1,7 @@
-efrom distutils.core import setup
+from distutils.core import setup
 import sys
 
-install_requires_list = ['zeep', 'pandas']
+install_requires_list = ['zeep', 'pandas',]
 
 # Long description to be published in PyPi
 LONG_DESCRIPTION = """
@@ -24,14 +24,10 @@ setup(name='PyIress',
       long_description=LONG_DESCRIPTION,
       url=_URL,
       download_url=_URL + '/archive/' + _VERSION + '.zip',
-      install_requires=[
-          'zeep',
-          'pandas',
-      ],
+      install_requires = install_requires_list,
       author='Charles Allderman',
       author_email='charles@allderman.com',
       license='MIT License',
       packages=['pyiress'],
-      install_requires=install_requires_list,
       classifiers=['Programming Language :: Python :: 3', ]
       )
