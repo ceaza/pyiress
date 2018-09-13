@@ -15,7 +15,7 @@ GitHub (https://github.com/ceaza/pyiress/blob/master/README.md).
 """
 
 _URL = 'https://github.com/ceaza/pyiress'
-_VERSION = '0.0.3'
+_VERSION = '0.0.5'
 
 
 setup(name='PyIress',
