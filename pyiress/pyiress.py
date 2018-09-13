@@ -148,9 +148,13 @@ class Iress(object):
         part_date=start_date
         data=pd.DataFrame()
         while part_date < pd.Timestamp(end_date):
-            new_data=self._time_series(ticker,exchange,part_date,end_date,freq)
-            data=pd.concat([data,new_data])
-            part_date = data.index.max() + pd.DateOffset(1,'D')
+            try:
+                new_data=self._time_series(ticker,exchange,part_date,end_date,freq)
+                data=pd.concat([data,new_data])
+                part_date = data.index.max() + pd.DateOffset(1,'D')
+            except:
+                break
+            
         return data
     
     def dividends(self,ticker,exchange,start_date,end_date,freq=None,index_on='ExDividendDate'):
@@ -174,11 +178,15 @@ class Iress(object):
                           } } 
         
         inputs={**self.header, **parameters}
-        res=self.client.service.SecurityDividendGetBySecurity(Input=inputs)
-        data=zeep.helpers.serialize_object(res.Result.DataRows.DataRow)
-        df=pd.DataFrame(data)
-        df[index_on]=pd.to_datetime(df[index_on])
-        df=df.set_index(index_on)
+        
+        try:
+            res=self.client.service.SecurityDividendGetBySecurity(Input=inputs)
+            data=zeep.helpers.serialize_object(res.Result.DataRows.DataRow)
+            df=pd.DataFrame(data)
+            df[index_on]=pd.to_datetime(df[index_on])
+            df=df.set_index(index_on)
+        except:
+            df=pd.DataFrame()
         
         return df
 
@@ -247,11 +255,12 @@ class Iress(object):
         method_to_call = getattr(self, data_type)
         for ticker in tickers:
             data=method_to_call(ticker,exchange,start_date,end_date,freq)
-            data=data.reset_index()
-            data['ticker']=ticker
-            data['exchange']=exchange
-            data=data.set_index([date_field[data_type],'ticker'])
-            data_list.append(data)
+            if len(data)>0:
+                data=data.reset_index()
+                data['ticker']=ticker
+                data['exchange']=exchange
+                data=data.set_index([date_field[data_type],'ticker'])
+                data_list.append(data)
         df_data=pd.concat(data_list)
         return df_data
     
