@@ -57,10 +57,6 @@ PyIress is a Python interface onto the Iress web services API. See the [Website]
 * Any comments welcome.
 
 
-### Acknowledgements ###
-
-* Thanks to Vladimir Filimonov @vfilimonov who wrote PyDatastream on which this project is based
-
 
 ### License ###
 
