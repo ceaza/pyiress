@@ -263,7 +263,75 @@ class Iress(object):
                 data_list.append(data)
         df_data=pd.concat(data_list)
         return df_data
-    
+
+
+
+    def time_series_intraday(self,ticker,exchange,start_date,end_date,freq='minutes',interval=60):
+        '''
+
+        Input Parameters
+        
+        
+        
+        1 SecurityCode string 32 Yes  No  The security code to filter by.  
+        2 Exchange string 16 Yes  No  The exchange to filter by.  
+        3 DataSource string 8 Yes  No  The data source to filter by.  
+        4 Frequency string 80 No  No  The frequency type, one of 'trades' or 'minutes'. 
+        The following are the restrictions when filtering by a date range for the following consolidation intervals: Less than 10 minutes - 7 days,
+           10 to 30 minutes - 30 days, 30 to 60 minutes - 60 days. For a frequency of 'trades' the maximum number of days requested is equal to twice the consolidation interval to a maximum of 60 days.  
+        5 TimeSeriesFromDateTime dateTime 8 No  No  The date and time to retrieve time series from.  
+        6 TimeSeriesToDateTime dateTime 8 No  No  The date and time to retrieve time series to.  
+        7 ConsolidationInterval int32 4 No  No  If Frequency is set to 'trades' this sets the number of trades that will be consolidated on each row,
+           however if Frequency is set to 'minutes' 
+           this sets the number of minutes that will be consolidated on each row and must be set to a number between 1 and 60 that is an integral divisor of 60, eg 1, 2, 3, ... , 20, 30.  
+        8 IncludeTradingPeriod boolean 1 No false No  Indicate the start and end trading times. Valid with 'minutes' frequency only.  
+        9 SecurityText string -1 Yes  No  Security text, in the form of: code.exchange@datasource|board, where exchange, data source and board are optional. Examples: BHP, BHP.ASX, BHP.ASX@TM, BHP@TM, TSX.TSX@TSX|T  
+        
+        Header Columns
+        
+        1 PriceDisplayMultiplier double 8 No    Price display multiplier.  
+        2 SecurityCode string 32 No    Security code.  
+        3 Exchange string 16 No    Exchange where the security is listed.  
+        4 DataSource string 8 No    The data source for the security.  
+        
+        Output Columns
+        
+        1 OpenPrice double 8 Yes    Opening price for the time period.  
+        2 HighPrice double 8 Yes    Highest price for the time period.  
+        3 LowPrice double 8 Yes    Lowest price for the time period.  
+        4 ClosePrice double 8 No    Closing price for the time period.  
+        5 TotalVolume double 8 Yes    Total volume traded for the time period.  
+        6 TotalValue double 8 Yes    Total value traded for the time period.  
+        7 TradeCount int32 4 Yes    Number of trades for the time period.  
+        8 TimeSeriesDateTime dateTime 8 Yes    Date and time of the intraday time series point.  
+        9 TradingPeriod int32 4 Yes    0 = Start Trading. 1 = Start Trading (with no trades during the start trading period). 2 = End Trading. 3 = End Trading (with no trades during the end trading period).  
+        10 LastTradeNumberOfTheInterval int64 8 Yes    The last trade number of the interval.  
+        
+
+        '''
+        parameters={'Parameters':  {'SecurityCode': ticker,
+                          'Exchange': exchange,
+                          'Frequency':freq,
+                          'TimeSeriesFromDateTime':start_date.strftime('%Y/%m/%d'),
+                          'TimeSeriesToDateTime': end_date.strftime('%Y/%m/%d'),
+                          'ConsolidationInterval':str(interval)
+                          } } 
+        
+        inputs={**self.header, **parameters}
+        res=self.client.service.TimeSeriesIntraDayGet2(Input=inputs)
+      
+        data=zeep.helpers.serialize_object(res.Result.DataRows.DataRow)
+        df=pd.DataFrame(data)
+        # print(df.tail())
+        df['TimeSeriesDate'] = pd.to_datetime(df.TimeSeriesDateTime)
+        df['TimeSeriesDate'] = df.TimeSeriesDate.dt.tz_localize('America/New_York')
+        df=df.set_index('TimeSeriesDate')
+#            print(df.columns)
+
+        
+        return df
+
+
 if __name__ == "__main__":
     pass
 
