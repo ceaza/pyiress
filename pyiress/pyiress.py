@@ -272,7 +272,7 @@ class Iress(object):
         Input Parameters
         
         
-        
+        Pos     Name        Type Nullable? DefaultValue Array? ArraySize Description Alias
         1 SecurityCode string 32 Yes  No  The security code to filter by.  
         2 Exchange string 16 Yes  No  The exchange to filter by.  
         3 DataSource string 8 Yes  No  The data source to filter by.  
@@ -322,11 +322,10 @@ class Iress(object):
       
         data=zeep.helpers.serialize_object(res.Result.DataRows.DataRow)
         df=pd.DataFrame(data)
-        # print(df.tail())
         df['TimeSeriesDate'] = pd.to_datetime(df.TimeSeriesDateTime)
         df['TimeSeriesDate'] = df.TimeSeriesDate.dt.tz_localize('America/New_York')
         df=df.set_index('TimeSeriesDate')
-#            print(df.columns)
+
 
         
         return df

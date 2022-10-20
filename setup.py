@@ -1,7 +1,7 @@
 from distutils.core import setup
 import sys
 
-install_requires_list = ['zeep', 'pandas',]
+install_requires_list = ['zeep', 'pandas']
 
 # Long description to be published in PyPi
 LONG_DESCRIPTION = """

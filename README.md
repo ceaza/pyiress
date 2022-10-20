@@ -12,6 +12,7 @@ PyIress is a Python interface onto the Iress web services API. See the [Website]
 * This is the first version and the intention is to add to the list of available functions.
 * The following are currenly available:
 	- time_series : an items times series
+	- time_series_intraday : time series for a security with granularity finer than one day
 	- dividends : dividends for an item
 	- get_many : many of the above
 	- MarketCapitalizationHistorical : Index constituent information over a specified period
