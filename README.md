@@ -8,7 +8,7 @@ PyIress is a Python interface onto the Iress web services API. See the [Website]
 	Time series information
 	Dividend information
 	Index information
-* Version 0.0.5
+* Version 0.0.6
 * This is the first version and the intention is to add to the list of available functions.
 * The following are currenly available:
 	- time_series : an items times series
@@ -47,7 +47,7 @@ PyIress is a Python interface onto the Iress web services API. See the [Website]
 		iress = Iress(companyname=companyname,username=username,password=password,show_request=False)
 		tickers=['AGL','BIL']
 		exchange = 'JSE'
-		start_date, end_date = pd.datetime(2012,9,30),pd.datetime(2018,8,30)
+		start_date, end_date = pd.datetime(2018,9,30),pd.datetime(2022,8,30)
 		data=iress.get_many('time_series',tickers,exchange,start_date,end_date)
 		data=data[['ClosePrice']]
 		data.unstack(1).plot()
