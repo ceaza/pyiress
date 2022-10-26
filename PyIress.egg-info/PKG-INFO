@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: PyIress
+Version: 0.0.7
+Summary: Python interface to the Iress Pro Desktop Web Services API
+Home-page: https://github.com/ceaza/pyiress
+Download-URL: https://github.com/ceaza/pyiress/archive/v0.0.7.zip
+Author: Charles Allderman
+Author-email: charles@allderman.com
+License: MIT License
+Classifier: Programming Language :: Python :: 3
+License-File: LICENSE.txt
+
+
+**PyIress** is a Python interface to the **Iress Pro Desktop Web Services
+(IPD)** SOAP client (non free), with some convenience functions for retrieving
+Iress data specifically. This package requires valid credentials for this
+API.
+
+For the documentation please refer to README.md inside the package or on the
+GitHub (https://github.com/ceaza/pyiress/blob/master/README.md).

@@ -1,0 +1,11 @@
+LICENSE.txt
+README.md
+setup.cfg
+setup.py
+PyIress.egg-info/PKG-INFO
+PyIress.egg-info/SOURCES.txt
+PyIress.egg-info/dependency_links.txt
+PyIress.egg-info/requires.txt
+PyIress.egg-info/top_level.txt
+pyiress/__init__.py
+pyiress/pyiress.py
