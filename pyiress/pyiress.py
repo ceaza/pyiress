@@ -356,8 +356,8 @@ class Iress(object):
         parameters={'Parameters':  {'SecurityCode': ticker,
                           'Exchange': exchange,
                           'Frequency':freq,
-                          'TimeSeriesFromDateTime':start_date.strftime('%Y/%m/%d'),
-                          'TimeSeriesToDateTime': end_date.strftime('%Y/%m/%d'),
+                          'TimeSeriesFromDateTime':start_date.strftime('%Y-%m-%dT%H:%M:%S%Z'),
+                          'TimeSeriesToDateTime': end_date.strftime('%Y-%m-%dT%H:%M:%S%Z'),
                           'ConsolidationInterval':str(interval)
                           } } 
         
@@ -456,6 +456,12 @@ class Iress(object):
 if __name__ == "__main__":
     
     pass
+
+        
+        
+        
+        
+        
 
         
         
